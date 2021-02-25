@@ -1,102 +1,314 @@
 <!DOCTYPE html>
-<!--[if IE]><![endif]-->
-<!--[if IE 8 ]><html dir="{{ direction }}" lang="{{ lang }}" class="ie8"><![endif]-->
-<!--[if IE 9 ]><html dir="{{ direction }}" lang="{{ lang }}" class="ie9"><![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!-->
-<html dir="{{ direction }}" lang="{{ lang }}">
-<!--<![endif]-->
+<html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>{{ title }}</title>
-{% if robots %}
-<meta name="robots" content="{{ robots }}" />
-{% endif %}
-<base href="{{ base }}" />
-{% if description %}
-<meta name="description" content="{{ description }}" />
-{% endif %}
-{% if keywords %}
-<meta name="keywords" content="{{ keywords }}" />
-{% endif %}
-<meta property="og:title" content="{{ title }}" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="{{ og_url }}" />
-{% if og_image %}
-<meta property="og:image" content="{{ og_image }}" />
-{% else %}
-<meta property="og:image" content="{{ logo }}" />
-{% endif %}
-<meta property="og:site_name" content="{{ name }}" />
-<script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
-<link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
-<script src="catalog/view/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-<link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-<link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css" />
-<link href="catalog/view/theme/default/stylesheet/stylesheet.css" rel="stylesheet">
-{% for style in styles %}
-<link href="{{ style.href }}" type="text/css" rel="{{ style.rel }}" media="{{ style.media }}" />
-{% endfor %}
-{% for script in scripts %}
-<script src="{{ script }}" type="text/javascript"></script>
-{% endfor %}
-<script src="catalog/view/javascript/common.js" type="text/javascript"></script>
-{% for link in links %}
-<link href="{{ link.href }}" rel="{{ link.rel }}" />
-{% endfor %}
-{% for analytic in analytics %}
-{{ analytic }}
-{% endfor %}
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Main</title>
+    
+	<link href="catalog/view/javascript/slick/slick.css" rel="stylesheet">
+	<link href="catalog/view/javascript/slick/slick-theme.css" rel="stylesheet">
+
+	<link rel="stylesheet" href="catalog/view/theme/default/stylesheet/style.min.css">
+
+	
+	
 </head>
 <body>
-<nav id="top">
-  <div class="container">{{ currency }}
-    {{ language }}
-	{{ blog_menu }}
-    <div id="top-links" class="nav pull-right">
-      <ul class="list-inline">
-        <li><a href="{{ contact }}"><i class="fa fa-phone"></i></a> <span class="hidden-xs hidden-sm hidden-md">{{ telephone }}</span></li>
-        <li class="dropdown"><a href="{{ account }}" title="{{ text_account }}" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <span class="hidden-xs hidden-sm hidden-md">{{ text_account }}</span> <span class="caret"></span></a>
-          <ul class="dropdown-menu dropdown-menu-right">
-            {% if logged %}
-            <li><a href="{{ account }}">{{ text_account }}</a></li>
-            <li><a href="{{ order }}">{{ text_order }}</a></li>
-            <li><a href="{{ transaction }}">{{ text_transaction }}</a></li>
-            <li><a href="{{ download }}">{{ text_download }}</a></li>
-            <li><a href="{{ logout }}">{{ text_logout }}</a></li>
-            {% else %}
-            <li><a href="{{ register }}">{{ text_register }}</a></li>
-            <li><a href="{{ login }}">{{ text_login }}</a></li>
-            {% endif %}
-          </ul>
-        </li>
-        <li><a href="{{ wishlist }}" id="wishlist-total" title="{{ text_wishlist }}"><i class="fa fa-heart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ text_wishlist }}</span></a></li>
-        <li><a href="{{ shopping_cart }}" title="{{ text_shopping_cart }}"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ text_shopping_cart }}</span></a></li>
-        <li><a href="{{ checkout }}" title="{{ text_checkout }}"><i class="fa fa-share"></i> <span class="hidden-xs hidden-sm hidden-md">{{ text_checkout }}</span></a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-<header>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-4">
-		<div id="logo">
-          {% if logo %}
-            {% if home == og_url %}
-              <img src="{{ logo }}" title="{{ name }}" alt="{{ name }}" class="img-responsive" />
-            {% else %}
-              <a href="{{ home }}"><img src="{{ logo }}" title="{{ name }}" alt="{{ name }}" class="img-responsive" /></a>
-            {% endif %}
-          {% else %}
-            <h1><a href="{{ home }}">{{ name }}</a></h1>
-          {% endif %}
+
+	<!-- heading -->
+	<header class="header">
+		<div class="header__toolbar">
+			<div class="container">
+				<a href="/" class="header__logoMob">BARK&TAIL</a>
+				<ul class="header__social social">
+					<li>
+						<a class="ic_instagram" href="#"></a>
+					</li>
+					<li>
+						<a class="ic_facebook" href="#"></a>
+					</li>
+					<li>
+						<a class="ic_telegram" href="#"></a>
+					</li>
+					<li>
+						<a class="ic_phone" href="#"></a>
+					</li>
+				</ul>
+				<ul class="header__numbers ic_mobile">
+					<li>
+						<a href="tel:380661333813">+38 066 133 38 13</a>
+					</li>
+					<li>
+						<a href="tel:380661333813">+38 066 133 38 13</a>
+					</li>
+				</ul>
+				<nav class="header__links">
+					<ul>
+						<li>
+							<a href="vethelp.html">Vethelp</a>
+						</li>
+						<li>
+							<a href="delivery.html">Опалата и доставка</a>
+						</li>
+						<li>
+							<a href="#">Дисконтная программа</a>
+						</li>
+						<li>
+							<a href="contacts.html">Контакты</a>
+						</li>
+					</ul>
+				</nav>
+				<div class="header__langs header__langs--d">
+					<button class="btn">Рус</button>
+					<button class="btn header__langsActive">Укр</button>
+				</div>
+				<button class="header__burger ic_burger open_menu btn"></button>
+			</div>
 		</div>
-      </div>
-      <div class="col-sm-5">{{ search }}</div>
-      <div class="col-sm-3">{{ cart }}</div>
-    </div>
-  </div>
-</header>
-{{ menu }}
+		<div class="header__inner">
+			<div class="container">
+				<div class="header__innerWrap">
+					<a href="/" class="header__logo">
+						<img src="img/logo.png" alt="">
+					</a>
+					<div class="header__langs header__langs--m">
+						<button class="btn">Рус</button>
+						<button class="btn header__langsActive">Укр</button>
+					</div>
+
+					<!-- menu ver 1 -->
+				<nav class="header__menu">
+					<ul>
+						<li> 
+							<a href="category.html">СОБАКИ</a>
+						</li>
+						<li>
+							<a href="category.html">КОТЫ</a>
+						</li>
+						<li>
+							<a href="actions.html">АКЦИИ</a>
+						</li>
+						<li>
+							<a href="about.html">О КОМПАНИИ</a>
+						</li>
+						<li>
+							<a href="blog.html">БЛОГ</a>
+						</li>
+					</ul>
+				</nav>
+
+				<!-- menu ver 2 -->
+
+				<!-- if is dog page -->
+				<!-- <li class="cat_link">
+					<a href="#">ДЛЯ КОТОВ</a>
+				</li> -->
+				<!-- if is cat page -->
+				<!-- <li class="dog_link">
+					<a href="#">ДЛЯ СОБАК</a>
+				</li> -->
+
+				<!-- <nav class="header__menu">
+					<ul>
+						<li class="has_child">
+							<a href="#">УХОД</a>
+							<div class="submenu">
+								<div class="submenu__col">
+									<div class="submenu__title">BON APPETIT</div>
+									<ul class="submenu__list">
+										<li>
+											<a href="#">Корма</a>
+										</li>
+										<li>
+											<a href="#">Лакомства</a>
+										</li>
+										<li>
+											<a href="#">Миски</a>
+										</li>
+										<li>
+											<a href="#">Коврики</a>
+										</li>
+										<li>
+											<a href="#">Хранение</a>
+										</li>
+									</ul>
+								</div>
+								<div class="submenu__col">
+									<div class="submenu__title">УХОД И BEAUTY</div>
+									<ul class="submenu__list">
+										<li>
+											<a href="#">Глаза и уши</a>
+										</li>
+										<li>
+											<a href="#">Пасть и зубы</a>
+										</li>
+										<li>
+											<a href="#">Чистый дом</a>
+										</li>
+										<li>
+											<a href="#">Салфетки</a>
+										</li>
+										<li>
+											<a href="#">Пеленки и памперсы</a>
+										</li>
+										<li>
+											<a href="#">Глаза и уши</a>
+										</li>
+										<li>
+											<a href="#">Пасть и зубы</a>
+										</li>
+										<li>
+											<a href="#">Чистый дом</a>
+										</li>
+										<li>
+											<a href="#">Салфетки</a>
+										</li>
+										<li>
+											<a href="#">Пеленки и памперсы</a>
+										</li>
+									</ul>
+								</div>
+								<div class="submenu__col">
+									<div class="submenu__title">ПРОГУЛКА</div>
+									<ul class="submenu__list">
+										<li>
+											<a href="#">Глаза и уши</a>
+										</li>
+										<li>
+											<a href="#">Пасть и зубы</a>
+										</li>
+										<li>
+											<a href="#">Чистый дом</a>
+										</li>
+										<li>
+											<a href="#">Салфетки</a>
+										</li>
+										<li>
+											<a href="#">Пеленки и памперсы</a>
+										</li>
+										<li>
+											<a href="#">Глаза и уши</a>
+										</li>
+										<li>
+											<a href="#">Пасть и зубы</a>
+										</li>
+									</ul>
+								</div>
+								<div class="submenu__col">
+									<div class="submenu__title">ЗДОРОВЬЕ</div>
+									<ul class="submenu__list">
+										<li>
+											<a href="#">Глаза и уши</a>
+										</li>
+										<li>
+											<a href="#">Пасть и зубы</a>
+										</li>
+										<li>
+											<a href="#">Чистый дом</a>
+										</li>
+										<li>
+											<a href="#">Салфетки</a>
+										</li>
+										<li>
+											<a href="#">Пеленки и памперсы</a>
+										</li>
+										<li>
+											<a href="#">Глаза и уши</a>
+										</li>
+										<li>
+											<a href="#">Пасть и зубы</a>
+										</li>
+										<li>
+											<a href="#">Чистый дом</a>
+										</li>
+										<li>
+											<a href="#">Салфетки</a>
+										</li>
+										<li>
+											<a href="#">Пеленки и памперсы</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</li>
+						<li>
+							<a href="#">ЗАБОТА</a>
+						</li>
+						<li>
+							<a href="#">О НАС</a>
+						</li>
+						<li>
+							<a href="#">АКЦИИ</a>
+						</li>
+						<li class="cat_link">
+							<a href="#">ДЛЯ КОТОВ</a>
+						</li>
+					</ul>
+				</nav> -->
+
+				<nav class="header__links header__links--m">
+					<ul>
+						<li>
+							<a href="#">Vethelp</a>
+						</li>
+						<li>
+							<a href="#">Опалата и доставка</a>
+						</li>
+						<li>
+							<a href="#">Дисконтная программа</a>
+						</li>
+						<li>
+							<a href="#">Контакты</a>
+						</li>
+					</ul>
+				</nav>
+
+				<ul class="header__numbers header__numbers--m ic_mobile">
+					<li>
+						<a href="tel:380661333813">+38 066 133 38 13</a>
+					</li>
+					<li>
+						<a href="tel:380661333813">+38 066 133 38 13</a>
+					</li>
+				</ul>
+
+			</div>
+
+
+
+			<ul class="header__tools">
+				<!-- if logged -->
+					<!-- <li>
+						<a class="ic_user" href="account.html"></a>
+					</li> -->
+					<!-- else -->
+					<li>
+						<a class="ic_user open_auth" href="#"></a>
+					</li>
+					<!-- endif -->
+
+					<li>
+						<a class="ic_search open_search" href="#"></a>
+					</li>
+					<li>
+						<a class="ic_heart_small open_wish" href="#"></a>
+					</li>
+					<li>
+						<a class="ic_cart open_cart" href="#"></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<form action="#" class="search">
+			<input type="text" name="search" placeholder="Поиск..." class="input">
+			<button class="btn ic_search_brown"></button>
+		</form>
+	</header>
+
+	<!-- if main page -->
+	<section class="heading heading--main">
+		<div class="container">
+			<h1>Интернет зоомагазин Bark&Tail</h1>
+		</div>		
+	</section>
