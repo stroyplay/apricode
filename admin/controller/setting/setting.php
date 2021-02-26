@@ -25,6 +25,8 @@ class ControllerSettingSetting extends Controller {
 
 			$this->response->redirect($this->url->link('setting/store', 'user_token=' . $this->session->data['user_token'], true));
 		}
+
+		$data['socials'] = $this->model_setting_setting->getSocials();
 		
 		if (isset($this->error['warning'])) {
 			$data['error_warning'] = $this->error['warning'];

@@ -28,6 +28,11 @@ class ModelSettingSetting extends Model {
 				}
 			}
 		}
+
+		$this->db->query("TRUNCATE TABLE " . DB_PREFIX . "social");
+        foreach($data['social'] as $social){
+        	$this->db->query("INSERT INTO " . DB_PREFIX . "social SET name = '" . $this->db->escape($social['name']) . "', link = '" . $this->db->escape($social['link']) . "', class = '" . $this->db->escape($social['class']) . "'");
+        }
 	}
 
 	public function deleteSetting($code, $store_id = 0) {
@@ -50,5 +55,10 @@ class ModelSettingSetting extends Model {
 		} else {
 			$this->db->query("UPDATE " . DB_PREFIX . "setting SET `value` = '" . $this->db->escape(json_encode($value)) . "', serialized = '1' WHERE `code` = '" . $this->db->escape($code) . "' AND `key` = '" . $this->db->escape($key) . "' AND store_id = '" . (int)$store_id . "'");
 		}
+	}
+
+	public function getSocials(){
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "social");
+		return $query->rows;
 	}
 }
