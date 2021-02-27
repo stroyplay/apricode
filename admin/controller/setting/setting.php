@@ -931,6 +931,12 @@ class ControllerSettingSetting extends Controller {
 		} else {
 			$data['config_valide_params'] = "tracking\r\nutm_source\r\nutm_campaign\r\nutm_medium\r\ntype\r\nsource\r\nblock\r\nposition\r\nkeyword\r\nyclid\r\ngclid";
 		}
+
+		$data['tab_social'] = $this->language->get('tab_social');
+		$data['entry_social_name'] = $this->language->get('entry_social_name');
+		$data['entry_link'] = $this->language->get('entry_link');
+		$data['entry_class'] = $this->language->get('entry_class');
+		$data['help_telephone'] = $this->language->get('help_telephone');
 		
 
 		$data['header'] = $this->load->controller('common/header');
@@ -965,9 +971,9 @@ class ControllerSettingSetting extends Controller {
 			$this->error['email'] = $this->language->get('error_email');
 		}
 
-		if ((utf8_strlen($this->request->post['config_telephone']) < 3) || (utf8_strlen($this->request->post['config_telephone']) > 32)) {
-			$this->error['telephone'] = $this->language->get('error_telephone');
-		}
+		// if ((utf8_strlen($this->request->post['config_telephone']) < 3) || (utf8_strlen($this->request->post['config_telephone']) > 32)) {
+		// 	$this->error['telephone'] = $this->language->get('error_telephone');
+		// }
 
 		if (!empty($this->request->post['config_customer_group_display']) && !in_array($this->request->post['config_customer_group_id'], $this->request->post['config_customer_group_display'])) {
 			$this->error['customer_group_display'] = $this->language->get('error_customer_group_display');

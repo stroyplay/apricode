@@ -1,4 +1,4 @@
-{% if languages|length > 1 %}
+<!-- {% if languages|length > 1 %}
 <div class="pull-left">
   <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-language">
     <div class="btn-group">
@@ -21,4 +21,21 @@
     <input type="hidden" name="redirect" value="{{ redirect }}" />
   </form>
 </div>
+{% endif %} -->
+
+{% if languages|length > 1 %}
+<div class="header__langs header__langs--d">
+  <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-language">
+  {% for language in languages %}
+  {% if language.code == code %}
+  <button class="btn header__langsActive" type="button" name="{{ language.code }}">{{ language.name }}</button>
+  {% else %}
+  <button class="btn" type="button" name="{{ language.code }}">{{ language.name }}</button>
+  {% endif %}
+  {% endfor %}
+    <input type="hidden" name="code" value="" />
+    <input type="hidden" name="redirect" value="{{ redirect }}" />
+  </form>
+  </div>
+  <button class="header__burger ic_burger open_menu btn"></button>
 {% endif %}

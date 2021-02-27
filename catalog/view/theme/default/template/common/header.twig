@@ -22,48 +22,37 @@
 			<div class="container">
 				<a href="/" class="header__logoMob">BARK&TAIL</a>
 				<ul class="header__social social">
+					{% for social in socials %}
 					<li>
-						<a class="ic_instagram" href="#"></a>
+						<a class="{{ social.class }}" href="{{ social.link }}"></a>
 					</li>
-					<li>
-						<a class="ic_facebook" href="#"></a>
-					</li>
-					<li>
-						<a class="ic_telegram" href="#"></a>
-					</li>
-					<li>
-						<a class="ic_phone" href="#"></a>
-					</li>
+					{% endfor %}
 				</ul>
 				<ul class="header__numbers ic_mobile">
+					{% for phone in phones %}
 					<li>
-						<a href="tel:380661333813">+38 066 133 38 13</a>
+						<a href="tel:{{ phone }}">{{ phone }}</a>
 					</li>
-					<li>
-						<a href="tel:380661333813">+38 066 133 38 13</a>
-					</li>
+					{% endfor %}
 				</ul>
 				<nav class="header__links">
 					<ul>
 						<li>
-							<a href="vethelp.html">Vethelp</a>
+							<a href="index.php?route=information/information&information_id=6">Vethelp</a>
 						</li>
 						<li>
-							<a href="delivery.html">Опалата и доставка</a>
+							<a href="index.php?route=information/information&information_id=4">Опалата и доставка</a>
 						</li>
 						<li>
-							<a href="#">Дисконтная программа</a>
+							<a href="index.php?route=information/information&information_id=3">Дисконтная программа</a>
 						</li>
 						<li>
-							<a href="contacts.html">Контакты</a>
+							<a href="index.php?route=information/information&information_id=5">Контакты</a>
 						</li>
 					</ul>
 				</nav>
-				<div class="header__langs header__langs--d">
-					<button class="btn">Рус</button>
-					<button class="btn header__langsActive">Укр</button>
-				</div>
-				<button class="header__burger ic_burger open_menu btn"></button>
+				{{ language }}
+				
 			</div>
 		</div>
 		<div class="header__inner">
@@ -72,28 +61,24 @@
 					<a href="/" class="header__logo">
 						<img src="img/logo.png" alt="">
 					</a>
-					<div class="header__langs header__langs--m">
-						<button class="btn">Рус</button>
-						<button class="btn header__langsActive">Укр</button>
-					</div>
 
 					<!-- menu ver 1 -->
 				<nav class="header__menu">
 					<ul>
 						<li> 
-							<a href="category.html">СОБАКИ</a>
+							<a href="index.php?route=product/category&path=59">СОБАКИ</a>
 						</li>
 						<li>
-							<a href="category.html">КОТЫ</a>
+							<a href="index.php?route=product/category&path=60">КОТЫ</a>
 						</li>
 						<li>
-							<a href="actions.html">АКЦИИ</a>
+							<a href="index.php?route=information/information&information_id=7">АКЦИИ</a>
 						</li>
 						<li>
-							<a href="about.html">О КОМПАНИИ</a>
+							<a href="index.php?route=information/information&information_id=8">О КОМПАНИИ</a>
 						</li>
 						<li>
-							<a href="blog.html">БЛОГ</a>
+							<a href="index.php?route=information/information&information_id=9">БЛОГ</a>
 						</li>
 					</ul>
 				</nav>

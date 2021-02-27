@@ -4,6 +4,7 @@ class ControllerCommonFooter extends Controller {
 		$this->load->language('common/footer');
 
 		$this->load->model('catalog/information');
+		$this->load->model('setting/extension');
 
 		$data['informations'] = array();
 
@@ -57,6 +58,8 @@ class ControllerCommonFooter extends Controller {
 		}
 
 		$data['scripts'] = $this->document->getScripts('footer');
+
+		$data['socials'] = $this->model_setting_extension->getSocials();
 		
 		return $this->load->view('common/footer', $data);
 	}

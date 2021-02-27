@@ -99,6 +99,16 @@ class ControllerCommonHeader extends Controller {
 		$data['cart'] = $this->load->controller('common/cart');
 		$data['menu'] = $this->load->controller('common/menu');
 
+		$data['socials'] = $this->model_setting_extension->getSocials();
+
+		$telephones = explode(',', $this->config->get('config_telephone'));
+
+		$data['phones'] = array();
+
+		foreach($telephones as $phone){
+			$data['phones'][] = trim($phone);
+		}
+
 		return $this->load->view('common/header', $data);
 	}
 }

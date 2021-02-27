@@ -5,4 +5,9 @@ class ModelSettingExtension extends Model {
 
 		return $query->rows;
 	}
+
+	public function getSocials(){
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "social");
+		return $query->rows;
+	}
 }
